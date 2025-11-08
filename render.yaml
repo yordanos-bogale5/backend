@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: flex-living-reviews-api
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: HOSTAWAY_API_KEY
+        sync: false
+      - key: HOSTAWAY_ACCOUNT_ID
+        sync: false
+      - key: HOSTAWAY_API_BASE_URL
+        value: https://api.hostaway.com/v1
+      - key: GOOGLE_PLACES_API_KEY
+        sync: false
+    healthCheckPath: /health
+
